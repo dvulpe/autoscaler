@@ -8,6 +8,6 @@ RUN GOOS=linux GOARCH=arm64 go build -v -o cluster-autoscaler
 
 FROM arm64v8/alpine:latest
 
-COPY --from=builder /go/src/cluster-autoscaler/cluster-autoscaler /usr/bin/cluster-autoscaler
+COPY --from=builder /go/src/cluster-autoscaler/cluster-autoscaler /cluster-autoscaler
 
-ENTRYPOINT ["/usr/bin/cluster-autoscaler"]
+CMD ["/cluster-autoscaler"]
